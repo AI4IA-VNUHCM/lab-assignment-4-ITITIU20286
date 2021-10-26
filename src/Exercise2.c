@@ -3,7 +3,7 @@
 Sort the odd column in increasing order and the
 even column in decreasing order.
 Ex:
-___________________________________________________________________________________
+_______________________________________________________________________________
 | Input: 5(row) 4(col) 10 21 12 53 64 53 86 72 68 99 10 11 12 13 14 15 16 17 18 19 |
 | The converted 2D array will be like this:                                        |
 | 10 21 12 53                                                                      |
@@ -53,6 +53,55 @@ void Ex2(int arr[], int m, int n){
 	int a[SIZE][SIZE];
 	Array2Dconverter(arr,a,m,n);
 	//Your codes here
+	int updown, k, j;
+    for(j=0;j < m - 1;j++)
+    {
+        for(k= j + 1; k < m; k++)
+        {
+            if(a[j][0] < a[k][0])
+            {    
+                updown = a[j][0];
+                a[j][0]=a[k][0];
+                a[k][0]=updown;
+            }
+        }
+    }
+	 for(j = 0;j<m-1;j++)
+    {
+        for(k=j+1;k<m;k++)
+        {
+            if(a[j][2]<a[k][2])
+            {    
+                updown = a[j][2];
+                a[j][2] = a[k][2];
+                a[k][2] = updown;
+            }
+        }
+    }
+	for(j = 0;j < m - 1; j++)
+    {
+        for(k= j + 1;k < m; k++)
+        {
+            if(a[j][1] > a[k][1])
+            {    
+                updown = a[j][1];
+                a[j][1] = a[k][1];
+                a[k][1] = updown;
+            }
+        }
+    }
+	 for(j = 0;j < m - 1; j++)
+    {
+        for(k = j + 1;k < m; k++)
+        {
+            if(a[j][3] > a[k][3])
+            {    
+                updown = a[j][3];
+                a[j][3] = a[k][3];
+                a[k][3] = updown;
+            }
+        }
+    }
 
 	printArray(a, m, n);
 }
