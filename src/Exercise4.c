@@ -5,7 +5,7 @@
 	c.	Insert one column
 	d.	Remove one column
 Ex:
-____________________________________________________________________
+________________________________________________________________
 | Input: 5(row) 4(col) 1(choice) 2(location) 1 2 3 4 (insert array) |
 | 10 21 12 53 64 53 86 72 68 99 10 11 12 13 14 15 16 17 18 19       |
 | Output:                                                           |
@@ -49,22 +49,64 @@ void printArray(int a[SIZE][SIZE], int m, int n)
 
 void insertRow(int arr[], int a[SIZE][SIZE],int rowIndex, int m, int n){
 	//Your codes here
+	for (int i = m; i > rowIndex; i--)
+		for (int j = 0; j < n; j++)
+			a[i][j] = a[i - 1][j];
+	for (int i = 0; i < n; i++)
+		a[rowIndex][i] = arr[i];
+		for (int i = 0; i <= m; i++)
+		for (int j = 0; j < n; j++)
+		{
+			printf("%d ",a[i][j]);
+			if (j == n - 1)
+				printf("\n");
+		}
 	
 }
 
 void removeRow(int a[SIZE][SIZE], int rowIndex, int m, int n){
 	//Your codes here
-	
+	for (int i = rowIndex; i < m - 1; i++)
+		for (int j = 0; j < n; j++)
+			a[i][j] = a[i + 1][j];
+	for (int i = 0; i < m-1; i++)
+		for (int j = 0; j < n; j++)
+		{
+			printf("%d ",a[i][j]);
+			if (j == n - 1)
+				printf("\n");
+		}
 }
 
 void insertCol(int arr[], int a[SIZE][SIZE],int colIndex, int m, int n){
 	//Your codes here
+		for (int i = 0; i < m; i++)
+		for (int j = n; j > colIndex; j--)
+			a[i][j] = a[i][j-1];
+	for (int i = 0; i < m; i++)
+		a[i][colIndex] = arr[i];
+	for (int i = 0; i < m; i++)
+		for (int j = 0; j <= n; j++)
+		{
+			printf("%d ", a[i][j]);
+			if (j == n )
+				printf("\n");
+		}
 	
 }
 
 void removeCol(int a[SIZE][SIZE], int colIndex, int m, int n){
 	//Your codes here
-	
+	for (int i = 0; i < m ; i++)
+		for (int j = colIndex; j < n-1; j++)
+			a[i][j] = a[i][j+1];
+	for (int i = 0; i < m ; i++)
+		for (int j = 0; j < n-1; j++)
+		{
+			printf("%d ", a[i][j]);
+			if (j == n - 2)
+				printf("\n");
+		}
 }
 
 int main(int argc, char *argv[]) {
