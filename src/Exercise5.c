@@ -3,7 +3,7 @@
 Find the minimum element of each row then find the maximum
 number from those.
 Ex:
-___________________________________________________________________________________
+_______________________________________________________________________________
 | Input: 5(row) 4(col) 10 21 22 54 64 53 86 72 68 99 30 11 12 23 69 15 16 77 98 19 |
 | The converted 2D array will be like this:                                        |
 | 10 21 22 54                                                                      |
@@ -36,8 +36,19 @@ void Array2Dconverter(int arr[], int a[SIZE][SIZE], int m, int n)
 void Ex5(int arr[], int m, int n){
 	int a[SIZE][SIZE];
 	Array2Dconverter(arr,a,m,n);
-	//Your codes here
-
+	int max = 0;
+	for (int i = 0; i < m; i++)
+	{
+		int min = a[i][0];
+		for (int j = 0; j < n; j++)
+		{
+			if (min > a[i][j])
+				min = a[i][j];
+		}
+		if (max < min)
+			max = min;
+	}
+	printf("%d", max);
 }
 
 int main(int argc, char *argv[]) {
